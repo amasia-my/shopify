@@ -25,14 +25,14 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        # Use `npm ci` if you have a package-lock.json, otherwise npm install
         run: npm install
 
       - name: Build
         run: npm run build
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        # Use the v2 tag which no longer depends on the deprecated upload-artifact v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./dist
 
